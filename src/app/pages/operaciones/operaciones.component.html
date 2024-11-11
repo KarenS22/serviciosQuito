@@ -1,0 +1,29 @@
+<div>
+    <h2>Gestión de Registros</h2>
+    <form (ngSubmit)="realizarOperacion()">
+      <label for="nombre">Nombre:</label>
+      <input type="text"  [(ngModel)]="nombre" name="nombre" required />
+      <label for="apellido">Apellido:</label>
+      <input type="text"  [(ngModel)]="apellido" name="apellido" required />
+      <label for="correo">Correo:</label>
+      <input type="text"  [(ngModel)]="correo" name="correo" required />
+      <label for="numTelefono">Numero de telefono:</label>
+      <input type="text"  [(ngModel)]="numero" name="numero" required />
+     
+      <button type="submit">Registrarse</button>
+    </form>
+  
+
+  
+    <h3>Historial de Registros</h3>
+    <ul>
+      <li *ngFor="let rg of registros; index as i">
+        <span> {{rg.nombre }} {{rg.apellido }}</span>  <span>{{rg.correo }}</span> {{rg.numeroTelefono }}
+
+        <button (click)="seleccionarOperacion(i)">Seleccionar</button>     
+        <button (click)="eliminarOperacion(i)">Eliminar</button>
+    </li>
+    </ul>
+    <br>
+    <button (click)="eliminarLog()">Eliminar Registros</button>
+  </div>
